@@ -1,11 +1,11 @@
 # You Don't Know JS: *this* & Object Prototypes
 # Chapter 1: `this` Or That?
 
-One of the most confused mechanisms in JavaScript is the `this` keyword. It's a special identifier keyword that's automatically defined in the scope of every function, but what exactly it refers to bedevils even seasoned JavaScript developers.
+One of the most confused mechanisms in JavaScript is the `this` keyword. It's a special identifier keyword that's automatically defined in the scope of every function, but what exactly it refers to __bedevils__(problems) even __seasoned__(experience) JavaScript developers.
 
-> Any sufficiently *advanced* technology is indistinguishable from magic. -- Arthur C. Clarke
+> Any sufficiently *advanced* technology is __indistinguishable from__(无差别) magic. -- Arthur C. Clarke
 
-JavaScript's `this` mechanism isn't actually *that* advanced, but developers often paraphrase that quote in their own mind by inserting "complex" or "confusing", and there's no question that without lack of clear understanding, `this` can seem downright magical in *your* confusion.
+JavaScript's `this` mechanism isn't actually *that* advanced, but developers often paraphrase that quote in their own mind by inserting "complex" or "confusing", and there's no question that without lack of clear understanding, `this` can seem __downright__(bad) magical in *your* confusion.
 
 **Note:** The word "this" is a terribly common pronoun in general discourse. So, it can be very difficult, especially verbally, to determine whether we are using "this" as a pronoun or using it to refer to the actual keyword identifier. For clarity, I will always use `this` to refer to the special keyword, and "this" or *this* or this otherwise.
 
@@ -62,7 +62,7 @@ speak( me ); // Hello, I'm KYLE
 
 However, the `this` mechanism provides a more elegant way of implicitly "passing along" an object reference, leading to cleaner API design and easier re-use.
 
-The more complex your usage pattern is, the more clearly you'll see that passing context around as an explicit parameter is often messier than passing around a `this` context. When we explore objects and prototypes, you will see the helpfulness of a collection of functions being able to automatically reference the proper context object.
+The more complex your usage pattern is, the more clearly you'll see that passing context around as an explicit parameter is often __messier__(复杂) than passing around a `this` context. When we explore objects and prototypes, you will see the helpfulness of a collection of functions being able to automatically reference the proper context object.
 
 ## Confusions
 
@@ -266,7 +266,7 @@ Every time you feel yourself trying to mix lexical scope look-ups with `this`, r
 
 Having set aside various incorrect assumptions, let us now turn our attention to how the `this` mechanism really works.
 
-We said earlier that `this` is not an author-time binding but a runtime binding. It is contextual based on the conditions of the function's invocation. `this` binding has nothing to do with where a function is declared, but has instead everything to do with the manner in which the function is called.
+We said earlier that `this` is not an author-time binding but a runtime binding. It is contextual based on the conditions of the function's invocation. __`this` binding has nothing to do with where a function is declared, but has instead everything to do with the manner in which the function is called.__
 
 When a function is invoked, an activation record, otherwise known as an execution context, is created. This record contains information about where the function was called from (the call-stack), *how* the function was invoked, what parameters were passed, etc. One of the properties of this record is the `this` reference which will be used for the duration of that function's execution.
 

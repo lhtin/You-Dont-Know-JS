@@ -123,9 +123,9 @@ c1.count === 2; // true
 c1.count === c2.count; // true
 ```
 
-The biggest problem here is that it betrays the `class` syntax by exposing (leakage!) `.prototype` as an implementation detail.
+The biggest problem here is that it __betrays__(揭示) the `class` syntax by exposing (leakage!) `.prototype` as an implementation detail.
 
-But, we also still have the surprise gotcha that `this.count++` would implicitly create a separate shadowed `.count` property on both `c1` and `c2` objects, rather than updating the shared state. `class` offers us no consolation from that issue, except (presumably) to imply by lack of syntactic support that you shouldn't be doing that *at all*.
+But, we also still have the surprise gotcha that `this.count++` would implicitly create a separate shadowed `.count` property on both `c1` and `c2` objects, rather than updating the shared state. `class` offers us no __consolation__(修复) from that issue, except (presumably) to imply by lack of syntactic support that you shouldn't be doing that *at all*.
 
 Moreover, accidental shadowing is still a hazard:
 
@@ -225,7 +225,7 @@ In other words, it's as if `class` is telling you: "dynamic is too hard, so it's
 
 What a sad commentary on JavaScript: **dynamic is too hard, let's pretend to be (but not actually be!) static**.
 
-These are the reasons why ES6 `class` is masquerading as a nice solution to syntactic headaches, but it's actually muddying the waters further and making things worse for JS and for clear and concise understanding.
+These are the reasons why ES6 `class` is __masquerading__(假装) as a nice solution to syntactic headaches, but it's actually __muddying__(使...浑浊) the waters further and making things worse for JS and for clear and concise understanding.
 
 **Note:** If you use the `.bind(..)` utility to make a hard-bound function (see Chapter 2), the function created is not subclassable with ES6 `extend` like normal functions are.
 

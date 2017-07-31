@@ -11,7 +11,7 @@ Now, if you're a fan of strongly typed (statically typed) languages, you may obj
 
 Some people say JS shouldn't claim to have "types," and they should instead be called "tags" or perhaps "subtypes".
 
-Bah! We're going to use this rough definition (the same one that seems to drive the wording of the spec): a *type* is an intrinsic, built-in set of characteristics that uniquely identifies the behavior of a particular value and distinguishes it from other values, both to the engine **and to the developer**.
+Bah! We're going to use this rough definition (the same one that seems to drive the wording of the spec): a *type* is an __intrinsic__(本质的), built-in set of characteristics that uniquely identifies the behavior of a particular value and distinguishes it from other values, both to the engine **and to the developer**.
 
 In other words, if both the engine and the developer treat value `42` (the number) differently than they treat value `"42"` (the string), then those two values have different *types* -- `number` and `string`, respectively. When you use `42`, you are *intending* to do something numeric, like math. But when you use `"42"`, you are *intending* to do something string'ish, like outputting to the page, etc. **These two values have different types.**
 
@@ -31,7 +31,7 @@ But there are many different ways that such coercion can happen. Some of these w
 
 Coercion confusion is perhaps one of the most profound frustrations for JavaScript developers. It has often been criticized as being so *dangerous* as to be considered a flaw in the design of the language, to be shunned and avoided.
 
-Armed with a full understanding of JavaScript types, we're aiming to illustrate why coercion's *bad reputation* is largely overhyped and somewhat undeserved -- to flip your perspective, to seeing coercion's power and usefulness. But first, we have to get a much better grip on values and types.
+Armed with a full understanding of JavaScript types, we're aiming to illustrate why coercion's *bad reputation* is largely overhyped and somewhat undeserved -- to flip your perspective, to seeing coercion's power and usefulness. But first, we have to get a much better __grip__(understanding) on values and types.
 
 ## Built-in Types
 
@@ -157,9 +157,9 @@ typeof b; // "undefined"
 typeof c; // "undefined"
 ```
 
-It's tempting for most developers to think of the word "undefined" and think of it as a synonym for "undeclared." However, in JS, these two concepts are quite different.
+It's tempting for most developers to think of the word "undefined" and think of it as a __synonym__(同义词) for "undeclared." However, in JS, these two concepts are quite different.
 
-An "undefined" variable is one that has been declared in the accessible scope, but *at the moment* has no other value in it. By contrast, an "undeclared" variable is one that has not been formally declared in the accessible scope.
+__An "undefined" variable is one that has been declared in the accessible scope, but *at the moment* has no other value in it. By contrast, an "undeclared" variable is one that has not been formally declared in the accessible scope.__
 
 Consider:
 
@@ -184,7 +184,7 @@ typeof b; // "undefined"
 
 The `typeof` operator returns `"undefined"` even for "undeclared" (or "not defined") variables. Notice that there was no error thrown when we executed `typeof b`, even though `b` is an undeclared variable. This is a special safety guard in the behavior of `typeof`.
 
-Similar to above, it would have been nice if `typeof` used with an undeclared variable returned "undeclared" instead of conflating the result value with the different "undefined" case.
+Similar to above, it would have been nice if `typeof` used with an undeclared variable returned "undeclared" instead of __conflating__(使...一致) the result value with the different "undefined" case.
 
 ### `typeof` Undeclared
 

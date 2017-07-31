@@ -1,13 +1,13 @@
 # You Don't Know JS: Types & Grammar
 # Chapter 4: Coercion
 
-Now that we much more fully understand JavaScript's types and values, we turn our attention to a very controversial topic: coercion.
+Now that we much more fully understand JavaScript's types and values, we turn our attention to a very __controversial__(有争议的) topic: coercion.
 
-As we mentioned in Chapter 1, the debates over whether coercion is a useful feature or a flaw in the design of the language (or somewhere in between!) have raged since day one. If you've read other popular books on JS, you know that the overwhelmingly prevalent *message* out there is that coercion is magical, evil, confusing, and just downright a bad idea.
+As we mentioned in Chapter 1, the debates over whether coercion is a useful feature or a __flaw__(mistake) in the design of the language (or somewhere in between!) have __raged__(争论) since day one. If you've read other popular books on JS, you know that the overwhelmingly __prevalent__(common) *message* out there is that coercion is magical, evil, confusing, and just downright a bad idea.
 
 In the same overall spirit of this book series, rather than running away from coercion because everyone else does, or because you get bitten by some quirk, I think you should run toward that which you don't understand and seek to *get it* more fully.
 
-Our goal is to fully explore the pros and cons (yes, there *are* pros!) of coercion, so that you can make an informed decision on its appropriateness in your program.
+Our goal is to fully explore the __pros and cons__(优点和缺点) (yes, there *are* pros!) of coercion, so that you can make an informed decision on its appropriateness in your program.
 
 ## Converting Values
 
@@ -303,7 +303,7 @@ All of JavaScript's values can be divided into two categories:
 1. values that will become `false` if coerced to `boolean`
 2. everything else (which will obviously become `true`)
 
-I'm not just being facetious. The JS spec defines a specific, narrow list of values that will coerce to `false` when coerced to a `boolean` value.
+I'm not just being __facetious__(看起来聪明实际愚蠢). The JS spec defines a specific, narrow list of values that will coerce to `false` when coerced to a `boolean` value.
 
 How do we know what the list of values is? In the ES5 spec, section 9.2 defines a `ToBoolean` abstract operation, which says exactly what happens for all the possible values when you try to coerce them "to boolean."
 
@@ -321,7 +321,7 @@ By logical conclusion, if a value is *not* on that list, it must be on *another 
 
 #### Falsy Objects
 
-Wait a minute, that section title even sounds contradictory. I literally *just said* the spec calls all objects truthy, right? There should be no such thing as a "falsy object."
+Wait a minute, that section title even sounds __contradictory__(矛盾). I literally *just said* the spec calls all objects truthy, right? There should be no such thing as a "falsy object."
 
 What could that possibly even mean?
 
@@ -349,13 +349,13 @@ So, all three behave as `true`, as that's the only way `d` could end up as `true
 
 **Tip:** Notice the `Boolean( .. )` wrapped around the `a && b && c` expression -- you might wonder why that's there. We'll come back to that later in this chapter, so make a mental note of it. For a sneak-peek (trivia-wise), try for yourself what `d` will be if you just do `d = a && b && c` without the `Boolean( .. )` call!
 
-So, if "falsy objects" are **not just objects wrapped around falsy values**, what the heck are they?
+So, if "falsy objects" are **not just objects wrapped around falsy values**, what the __heck__ are they?
 
 The tricky part is that they can show up in your JS program, but they're not actually part of JavaScript itself.
 
 **What!?**
 
-There are certain cases where browsers have created their own sort of *exotic* values behavior, namely this idea of "falsy objects," on top of regular JS semantics.
+There are certain cases where browsers have created their own sort of *__exotic__(奇特的)* values behavior, namely this idea of "falsy objects," on top of regular JS semantics.
 
 A "falsy object" is a value that looks and acts like a normal object (properties, etc.), but when you coerce it to a `boolean`, it coerces to a `false` value.
 
@@ -369,13 +369,13 @@ The most well-known case is `document.all`: an array-like (object) provided to y
 
 So, why make it act falsy? Because coercions of `document.all` to `boolean` (like in `if` statements) were almost always used as a means of detecting old, nonstandard IE.
 
-IE has long since come up to standards compliance, and in many cases is pushing the web forward as much or more than any other browser. But all that old `if (document.all) { /* it's IE */ }` code is still out there, and much of it is probably never going away. All this legacy code is still assuming it's running in decade-old IE, which just leads to bad browsing experience for IE users.
+IE has long since come up to standards __compliance__(制定者), and in many cases is pushing the web forward as much or more than any other browser. But all that old `if (document.all) { /* it's IE */ }` code is still out there, and much of it is probably never going away. All this legacy code is still assuming it's running in decade-old IE, which just leads to bad browsing experience for IE users.
 
 So, we can't remove `document.all` completely, but IE doesn't want `if (document.all) { .. }` code to work anymore, so that users in modern IE get new, standards-compliant code logic.
 
-"What should we do?" **"I've got it! Let's bastardize the JS type system and pretend that `document.all` is falsy!"
+"What should we do?" **"I've got it! Let's __bastardize__(通过去掉好的部分使其变坏) the JS type system and pretend that `document.all` is falsy!"
 
-Ugh. That sucks. It's a crazy gotcha that most JS developers don't understand. But the alternative (doing nothing about the above no-win problems) sucks *just a little bit more*.
+Ugh. That __sucks__(very bad). It's a crazy gotcha that most JS developers don't understand. But the alternative (doing nothing about the above no-win problems) sucks *just a little bit more*.
 
 So... that's what we've got: crazy, nonstandard "falsy objects" added to JavaScript by the browsers. Yay!
 
@@ -423,9 +423,9 @@ The importance of truthy and falsy is in understanding how a value will behave i
 
 *Explicit* coercion refers to type conversions that are obvious and explicit. There's a wide range of type conversion usage that clearly falls under the *explicit* coercion category for most developers.
 
-The goal here is to identify patterns in our code where we can make it clear and obvious that we're converting a value from one type to another, so as to not leave potholes for future developers to trip into. The more explicit we are, the more likely someone later will be able to read our code and understand without undue effort what our intent was.
+The goal here is to identify patterns in our code where we can make it clear and obvious that we're converting a value from one type to another, so as to not leave __potholes__(坑) for future developers to trip into. The more explicit we are, the more likely someone later will be able to read our code and understand without __undue__(过多的) effort what our intent was.
 
-It would be hard to find any salient disagreements with *explicit* coercion, as it most closely aligns with how the commonly accepted practice of type conversion works in statically typed languages. As such, we'll take for granted (for now) that *explicit* coercion can be agreed upon to not be evil or controversial. We'll revisit this later, though.
+It would be hard to find any __salient__(重要的) disagreements with *explicit* coercion, as it most closely aligns with how the commonly accepted practice of type conversion works in statically typed languages. As such, we'll take for granted (for now) that *explicit* coercion can be agreed upon to not be evil or controversial. We'll revisit this later, though.
 
 ### Explicitly: Strings <--> Numbers
 
@@ -467,7 +467,7 @@ b; // "42"
 d; // 3.14
 ```
 
-Calling `a.toString()` is ostensibly explicit (pretty clear that "toString" means "to a string"), but there's some hidden implicitness here. `toString()` cannot be called on a *primitive* value like `42`. So JS automatically "boxes" (see Chapter 3) `42` in an object wrapper, so that `toString()` can be called against the object. In other words, you might call it "explicitly implicit."
+Calling `a.toString()` is __ostensibly__(假的) explicit (pretty clear that "toString" means "to a string"), but there's some hidden implicitness here. `toString()` cannot be called on a *primitive* value like `42`. So JS automatically "boxes" (see Chapter 3) `42` in an object wrapper, so that `toString()` can be called against the object. In other words, you might call it "explicitly implicit."
 
 `+c` here is showing the *unary operator* form (operator with only one operand) of the `+` operator. Instead of performing mathematic addition (or string concatenation -- see below), the unary `+` explicitly coerces its operand (`c`) to a `number` value.
 
@@ -492,7 +492,7 @@ You can probably dream up all sorts of hideous combinations of binary operators 
 1 + - + + + - + 1;	// 2
 ```
 
-You should strongly consider avoiding unary `+` (or `-`) coercion when it's immediately adjacent to other operators. While the above works, it would almost universally be considered a bad idea. Even `d = +c` (or `d =+ c` for that matter!) can far too easily be confused for `d += c`, which is entirely different!
+You should strongly consider avoiding unary `+` (or `-`) coercion when it's immediately __adjacent to__(毗邻) other operators. While the above works, it would almost universally be considered a bad idea. Even `d = +c` (or `d =+ c` for that matter!) can far too easily be confused for `d += c`, which is entirely different!
 
 **Note:** Another extremely confusing place for unary `+` to be used adjacent to another operator would be the `++` increment operator and `--` decrement operator. For example: `a +++b`, `a + ++b`, and `a + + +b`. See "Expression Side-Effects" in Chapter 5 for more about `++`.
 
@@ -514,7 +514,7 @@ The most common usage of this idiom is to get the current *now* moment as a time
 var timestamp = +new Date();
 ```
 
-**Note:** Some developers are aware of a peculiar syntactic "trick" in JavaScript, which is that the `()` set on a constructor call (a function called with `new`) is *optional* if there are no arguments to pass. So you may run across the `var timestamp = +new Date;` form. However, not all developers agree that omitting the `()` improves readability, as it's an uncommon syntax exception that only applies to the `new fn()` call form and not the regular `fn()` call form.
+**Note:** Some developers are aware of a __peculiar__(奇怪的) syntactic "trick" in JavaScript, which is that the `()` set on a constructor call (a function called with `new`) is *optional* if there are no arguments to pass. So you may run across the `var timestamp = +new Date;` form. However, not all developers agree that omitting the `()` improves readability, as it's an uncommon syntax exception that only applies to the `new fn()` call form and not the regular `fn()` call form.
 
 But coercion is not the only way to get the timestamp out of a `Date` object. A noncoercion approach is perhaps even preferable, as it's even more explicit:
 
@@ -542,7 +542,7 @@ if (!Date.now) {
 
 I'd recommend skipping the coercion forms related to dates. Use `Date.now()` for current *now* timestamps, and `new Date( .. ).getTime()` for getting a timestamp of a specific *non-now* date/time that you need to specify.
 
-#### The Curious Case of the `~`
+#### The __Curious__(奇怪) Case of the `~`
 
 One coercive JS operator that is often overlooked and usually very confused is the tilde `~` operator (aka "bitwise NOT"). Many of those who even understand what it does will often times still want to avoid it. But sticking to the spirit of our approach in this book and series, let's dig into it to find out if `~` has anything useful to give us.
 

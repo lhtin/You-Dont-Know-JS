@@ -3,9 +3,9 @@
 
 In the previous chapter, I introduced the basic building blocks of programming, such as variables, loops, conditionals, and functions. Of course, all the code shown has been in JavaScript. But in this chapter, we want to focus specifically on things you need to know about JavaScript to get up and going as a JS developer.
 
-We will introduce quite a few concepts in this chapter that will not be fully explored until subsequent *YDKJS* books. You can think of this chapter as an overview of the topics covered in detail throughout the rest of this series.
+We will introduce quite a few concepts in this chapter that will not be fully explored until subsequent *YDKJS* books. __You can think of this chapter as an overview of the topics covered in detail throughout the rest of this series.__
 
-Especially if you're new to JavaScript, you should expect to spend quite a bit of time reviewing the concepts and code examples here multiple times. Any good foundation is laid brick by brick, so don't expect that you'll immediately understand it all the first pass through.
+Especially if you're new to JavaScript, you should expect to spend quite a bit of time reviewing the concepts and code examples here multiple times. Any good foundation is __laid brick by brick__(砌墙), so don't expect that you'll immediately understand it all the first pass through.
 
 Your journey to deeply learn JavaScript starts here.
 
@@ -49,9 +49,9 @@ typeof a;				// "object"
 
 The return value from the `typeof` operator is always one of six (seven as of ES6! - the "symbol" type) string values. That is, `typeof "abc"` returns `"string"`, not `string`.
 
-Notice how in this snippet the `a` variable holds every different type of value, and that despite appearances, `typeof a` is not asking for the "type of `a`", but rather for the "type of the value currently in `a`." Only values have types in JavaScript; variables are just simple containers for those values.
+Notice how in this snippet the `a` variable holds every different type of value, and __that despite appearances__(尽管表面如此), `typeof a` is not asking for the "type of `a`", but rather for the "type of the value currently in `a`." Only values have types in JavaScript; variables are just simple containers for those values.
 
-`typeof null` is an interesting case, because it errantly returns `"object"`, when you'd expect it to return `"null"`.
+`typeof null` is an interesting case, because it __errantly__(奇怪地) returns `"object"`, when you'd expect it to return `"null"`.
 
 **Warning:** This is a long-standing bug in JS, but one that is likely never going to be fixed. Too much code on the Web relies on the bug and thus fixing it would cause a lot more bugs!
 
@@ -173,7 +173,7 @@ The "how" behind being able to call `a.toUpperCase()` is more complicated than j
 
 Briefly, there is a `String` (capital `S`) object wrapper form, typically called a "native," that pairs with the primitive `string` type; it's this object wrapper that defines the `toUpperCase()` method on its prototype.
 
-When you use a primitive value like `"hello world"` as an `object` by referencing a property or method (e.g., `a.toUpperCase()` in the previous snippet), JS automatically "boxes" the value to its object wrapper counterpart (hidden under the covers).
+When you use a primitive value like `"hello world"` as an `object` by referencing a property or method (e.g., `a.toUpperCase()` in the previous snippet), JS automatically "boxes" the value to its object wrapper __counterpart__(对应物) (hidden under the covers).
 
 A `string` value can be wrapped by a `String` object, a `number` can be wrapped by a `Number` object, and a `boolean` can be wrapped by a `Boolean` object. For the most part, you don't need to worry about or directly use these object wrapper forms of the values -- prefer the primitive value forms in practically all cases and JavaScript will take care of the rest for you.
 
@@ -189,7 +189,7 @@ We talked briefly about coercion in Chapter 1, but let's revisit it here.
 
 Coercion comes in two forms in JavaScript: *explicit* and *implicit*. Explicit coercion is simply that you can see obviously from the code that a conversion from one type to another will occur, whereas implicit coercion is when the type conversion can happen as more of a non-obvious side effect of some other operation.
 
-You've probably heard sentiments like "coercion is evil" drawn from the fact that there are clearly places where coercion can produce some surprising results. Perhaps nothing evokes frustration from developers more than when the language surprises them.
+You've probably heard __sentiments__(观点) like "coercion is evil" drawn from the fact that there are clearly places where coercion can produce some surprising results. Perhaps nothing evokes frustration from developers more than when the language surprises them.
 
 Coercion is not evil, nor does it have to be surprising. In fact, the majority of cases you can construct with type coercion are quite sensible and understandable, and can even be used to *improve* the readability of your code. But we won't go much further into that debate -- Chapter 4 of the *Types & Grammar* title of this series covers all sides.
 
@@ -261,9 +261,9 @@ The answer: `"42"` becomes `42`, to make the comparison `42 == 42`. In such a si
 
 The `a === b` produces `false`, because the coercion is not allowed, so the simple value comparison obviously fails. Many developers feel that `===` is more predictable, so they advocate always using that form and staying away from `==`. I think this view is very shortsighted. I believe `==` is a powerful tool that helps your program, *if you take the time to learn how it works.*
 
-We're not going to cover all the nitty-gritty details of how the coercion in `==` comparisons works here. Much of it is pretty sensible, but there are some important corner cases to be careful of. You can read section 11.9.3 of the ES5 specification (http://www.ecma-international.org/ecma-262/5.1/) to see the exact rules, and you'll be surprised at just how straightforward this mechanism is, compared to all the negative hype surrounding it.
+We're not going to cover all the nitty-gritty details of how the coercion in `==` comparisons works here. Much of it is pretty sensible, but there are some important corner cases to be careful of. You can read section 11.9.3 of the ES5 specification (http://www.ecma-international.org/ecma-262/5.1/) to see the exact rules, and you'll be surprised at just how straightforward this mechanism is, compared to all the negative __hype__(言论) surrounding it.
 
-To boil down a whole lot of details to a few simple takeaways, and help you know whether to use `==` or `===` in various situations, here are my simple rules:
+To __boil down__(提炼) a whole lot of details to a few simple __takeaways__(key point), and help you know whether to use `==` or `===` in various situations, here are my simple rules:
 
 * If either value (aka side) in a comparison could be the `true` or `false` value, avoid `==` and use `===`.
 * If either value in a comparison could be of these specific values (`0`, `""`, or `[]` -- empty array), avoid `==` and use `===`.
@@ -310,7 +310,7 @@ b < c;		// true
 
 What happens here? In section 11.8.5 of the ES5 specification, it says that if both values in the `<` comparison are `string`s, as it is with `b < c`, the comparison is made lexicographically (aka alphabetically like a dictionary). But if one or both is not a `string`, as it is with `a < b`, then both values are coerced to be `number`s, and a typical numeric comparison occurs.
 
-The biggest gotcha you may run into here with comparisons between potentially different value types -- remember, there are no "strict inequality" forms to use -- is when one of the values cannot be made into a valid number, such as:
+The biggest __gotcha__(?) you may run into here with comparisons between potentially different value types -- remember, there are no "strict inequality" forms to use -- is when one of the values cannot be made into a valid number, such as:
 
 ```js
 var a = 42;
@@ -345,7 +345,7 @@ You use the `var` keyword to declare a variable that will belong to the current 
 
 Wherever a `var` appears inside a scope, that declaration is taken to belong to the entire scope and accessible everywhere throughout.
 
-Metaphorically, this behavior is called *hoisting*, when a `var` declaration is conceptually "moved" to the top of its enclosing scope. Technically, this process is more accurately explained by how code is compiled, but we can skip over those details for now.
+Metaphorically, this behavior is called __*hoisting*__(声明提升), when a `var` declaration is conceptually "moved" to the top of its enclosing scope. Technically, this process is more accurately explained by how code is compiled, but we can skip over those details for now.
 
 Consider:
 
@@ -495,7 +495,7 @@ switch (a) {
 
 Here, if `a` is either `2` or `10`, it will execute the "some cool stuff" code statements.
 
-Another form of conditional in JavaScript is the "conditional operator," often called the "ternary operator." It's like a more concise form of a single `if..else` statement, such as:
+Another form of conditional in JavaScript is the "conditional operator," often called the "__ternary__(三元) operator." It's like a more concise form of a single `if..else` statement, such as:
 
 ```js
 var a = 42;
@@ -565,7 +565,7 @@ function foo() {
 foo();
 ```
 
-If you turn on strict mode in your code, and you get errors, or code starts behaving buggy, your temptation might be to avoid strict mode. But that instinct would be a bad idea to indulge. If strict mode causes issues in your program, almost certainly it's a sign that you have things in your program you should fix.
+If you turn on strict mode in your code, and you get errors, or code starts behaving buggy, your temptation might be to avoid strict mode. But that __instinct__(逃避倾向) would be a bad idea to indulge. If strict mode causes issues in your program, almost certainly it's a sign that you have things in your program you should fix.
 
 Not only will strict mode keep your code to a safer path, and not only will it make your code more optimizable, but it also represents the future direction of the language. It'd be easier on you to get used to strict mode now than to keep putting it off -- it'll only get harder to convert later!
 
@@ -583,7 +583,7 @@ function foo() {
 
 Though it may not seem obvious from that syntax, `foo` is basically just a variable in the outer enclosing scope that's given a reference to the `function` being declared. That is, the `function` itself is a value, just like `42` or `[1,2,3]` would be.
 
-This may sound like a strange concept at first, so take a moment to ponder it. Not only can you pass a value (argument) *to* a function, but *a function itself can be a value* that's assigned to variables, or passed to or returned from other functions.
+This may sound like a strange concept at first, so take a moment to __ponder__(细思) it. Not only can you pass a value (argument) *to* a function, but *a function itself can be a value* that's assigned to variables, or passed to or returned from other functions.
 
 As such, a function value should be thought of as an expression, much like any other value or expression.
 
@@ -667,7 +667,7 @@ The `42` value gets `return`ed from the `IIFE`-named function being executed, an
 
 *Closure* is one of the most important, and often least understood, concepts in JavaScript. I won't cover it in deep detail here, and instead refer you to the *Scope & Closures* title of this series. But I want to say a few things about it so you understand the general concept. It will be one of the most important techniques in your JS skillset.
 
-You can think of closure as a way to "remember" and continue to access a function's scope (its variables) even once the function has finished running.
+__You can think of closure as a way to "remember" and continue to access a function's scope (its variables) even once the function has finished running.__
 
 Consider:
 
@@ -713,7 +713,7 @@ More on how this code works:
 
 Don't worry if this seems strange and confusing at first -- it can be! It'll take lots of practice to understand it fully.
 
-But trust me, once you do, it's one of the most powerful and useful techniques in all of programming. It's definitely worth the effort to let your brain simmer on closures for a bit. In the next section, we'll get a little more practice with closure.
+But trust me, once you do, it's one of the most powerful and useful techniques in all of programming. It's definitely worth the effort to let your brain __simmer__(持续思考) on closures for a bit. In the next section, we'll get a little more practice with closure.
 
 #### Modules
 
@@ -769,9 +769,9 @@ Another very commonly misunderstood concept in JavaScript is the `this` identifi
 
 While it may often seem that `this` is related to "object-oriented patterns," in JS `this` is a different mechanism.
 
-If a function has a `this` reference inside it, that `this` reference usually points to an `object`. But which `object` it points to depends on how the function was called.
+__If a function has a `this` reference inside it, that `this` reference usually points to an `object`. But which `object` it points to depends on how the function was called.__
 
-It's important to realize that `this` *does not* refer to the function itself, as is the most common misconception.
+__It's important to realize that `this` *does not* refer to the function itself, as is the most common misconception.__
 
 Here's a quick illustration:
 
@@ -884,7 +884,7 @@ Or better yet, use an already vetted set of polyfills that you can trust, such a
 
 There's no way to polyfill new syntax that has been added to the language. The new syntax would throw an error in the old JS engine as unrecognized/invalid.
 
-So the better option is to use a tool that converts your newer code into older code equivalents. This process is commonly called "transpiling," a term for transforming + compiling.
+__So the better option is to use a tool that converts your newer code into older code equivalents.__ This process is commonly called "transpiling," a term for transforming + compiling.
 
 Essentially, your source code is authored in the new syntax form, but what you deploy to the browser is the transpiled code in old syntax form. You typically insert the transpiler into your build process, similar to your code linter or your minifier.
 

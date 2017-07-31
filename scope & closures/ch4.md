@@ -7,7 +7,7 @@ But there's a subtle detail of how scope attachment works with declarations that
 
 ## Chicken Or The Egg?
 
-There's a temptation to think that all of the code you see in a JavaScript program is interpreted line-by-line, top-down in order, as the program executes. While that is substantially true, there's one part of that assumption which can lead to incorrect thinking about your program.
+There's a temptation to think that all of the code you see in a JavaScript program is interpreted line-by-line, top-down in order, as the program executes. While that is __substantially__(大部分) true, there's one part of that assumption which can lead to incorrect thinking about your program.
 
 Consider this code:
 
@@ -218,4 +218,4 @@ What this leads to is that all declarations in a scope, regardless of where they
 
 Declarations themselves are hoisted, but assignments, even assignments of function expressions, are *not* hoisted.
 
-Be careful about duplicate declarations, especially mixed between normal var declarations and function declarations -- peril awaits if you do!
+Be careful about duplicate declarations, especially mixed between normal var declarations and function declarations -- __peril__(great danger) awaits if you do!

@@ -5,13 +5,13 @@ Welcome to the *You Don't Know JS* (*YDKJS*) series.
 
 *Up & Going* is an introduction to several basic concepts of programming -- of course we lean toward JavaScript (often abbreviated JS) specifically -- and how to approach and understand the rest of the titles in this series. Especially if you're just getting into programming and/or JavaScript, this book will briefly explore what you need to get *up and going*.
 
-This book starts off explaining the basic principles of programming at a very high level. It's mostly intended if you are starting *YDKJS* with little to no prior programming experience, and are looking to these books to help get you started along a path to understanding programming through the lens of JavaScript.
+This book starts off explaining the basic principles of programming at a very high level. It's mostly intended if you are starting *YDKJS* with little to no prior programming experience, and are looking to these books to help get you started along a path to understanding programming through the __lens__(镜头) of JavaScript.
 
 Chapter 1 should be approached as a quick overview of the things you'll want to learn more about and practice to get *into programming*. There are also many other fantastic programming introduction resources that can help you dig into these topics further, and I encourage you to learn from them in addition to this chapter.
 
-Once you feel comfortable with general programming basics, Chapter 2 will help guide you to a familiarity with JavaScript's flavor of programming. Chapter 2 introduces what JavaScript is about, but again, it's not a comprehensive guide -- that's what the rest of the *YDKJS* books are for!
+Once you feel comfortable with general programming basics, Chapter 2 will help guide you to a familiarity with JavaScript's __flavor__(特色) of programming. Chapter 2 introduces what JavaScript is about, but again, it's not a comprehensive guide -- that's what the rest of the *YDKJS* books are for!
 
-If you're already fairly comfortable with JavaScript, first check out Chapter 3 as a brief glimpse of what to expect from *YDKJS*, then jump right in!
+If you're already fairly comfortable with JavaScript, first check out Chapter 3 as a brief __glimpse__(快速浏览) of what to expect from *YDKJS*, then jump right in!
 
 ## Code
 
@@ -19,7 +19,7 @@ Let's start from the beginning.
 
 A program, often referred to as *source code* or just *code*, is a set of special instructions to tell the computer what tasks to perform. Usually code is saved in a text file, although with JavaScript you can also type code directly into a developer console in a browser, which we'll cover shortly.
 
-The rules for valid format and combinations of instructions is called a *computer language*, sometimes referred to as its *syntax*, much the same as English tells you how to spell words and how to create valid sentences using words and punctuation.
+The rules for valid format and combinations of instructions is called a *computer language*, sometimes referred to as its *syntax*, much the same as English tells you how to spell words and how to create valid sentences using words and punctuation(标点符号).
 
 ### Statements
 
@@ -35,9 +35,9 @@ By contrast, the `2` is just a value itself, called a *literal value*, because i
 
 The `=` and `*` characters are *operators* (see "Operators") -- they perform actions with the values and variables such as assignment and mathematic multiplication.
 
-Most statements in JavaScript conclude with a semicolon (`;`) at the end.
+Most statements in JavaScript __conclude with__(以...结束) a semicolon (`;`) at the end.
 
-The statement `a = b * 2;` tells the computer, roughly, to get the current value stored in the variable `b`, multiply that value by `2`, then store the result back into another variable we call `a`.
+The statement `a = b * 2;` tells the computer, __roughly__(not exeatyly), to get the current value stored in the variable `b`, multiply that value by `2`, then store the result back into another variable we call `a`.
 
 Programs are just collections of many such statements, which together describe all the steps that it takes to perform your program's purpose.
 
@@ -64,7 +64,7 @@ A general expression that stands alone is also called an *expression statement*,
 b * 2;
 ```
 
-This flavor of expression statement is not very common or useful, as generally it wouldn't have any effect on the running of the program -- it would retrieve the value of `b` and multiply it by `2`, but then wouldn't do anything with that result.
+This __flavor__(形式) of expression statement is not very common or useful, as generally it wouldn't have any effect on the running of the program -- it would retrieve the value of `b` and multiply it by `2`, but then wouldn't do anything with that result.
 
 A more common expression statement is a *call expression* statement (see "Functions"), as the entire statement is the function call expression itself:
 
@@ -82,7 +82,7 @@ For some computer languages, this translation of commands is typically done from
 
 For other languages, the translation is done ahead of time, called *compiling* the code, so when the program *runs* later, what's running is actually the already compiled computer instructions ready to go.
 
-It's typically asserted that JavaScript is *interpreted*, because your JavaScript source code is processed each time it's run. But that's not entirely accurate. The JavaScript engine actually *compiles* the program on the fly and then immediately runs the compiled code.
+It's typically asserted that JavaScript is *interpreted*, because your JavaScript source code is processed each time it's run. But that's not entirely accurate. The JavaScript engine actually *compiles* the program __on the fly__(在运行的时侯) and then immediately runs the compiled code.
 
 **Note:** For more information on JavaScript compiling, see the first two chapters of the *Scope & Closures* title of this series.
 
@@ -116,7 +116,7 @@ Go on, try it. The best way to learn programming is to start coding!
 
 In the previous code snippet, we used `console.log(..)`. Briefly, let's look at what that line of code is all about.
 
-You may have guessed, but that's exactly how we print text (aka *output* to the user) in the developer console. There are two characteristics of that statement that we should explain.
+You may have guessed, but that's exactly how we print text (__aka__(也叫做) *output* to the user) in the developer console. There are two characteristics of that statement that we should explain.
 
 First, the `log( b )` part is referred to as a function call (see "Functions"). What's happening is we're handing the `b` variable to that function, which asks it to take the value of `b` and print it to the console.
 
@@ -166,7 +166,7 @@ The `*` operator performs mathematic multiplication. Simple enough, right?
 
 The `=` equals operator is used for *assignment* -- we first calculate the value on the *right-hand side* (source value) of the `=` and then put it into the variable that we specify on the *left-hand side* (target variable).
 
-**Warning:** This may seem like a strange reverse order to specify assignment. Instead of `a = 42`, some might prefer to flip the order so the source value is on the left and the target variable is on the right, like `42 -> a` (this is not valid JavaScript!). Unfortunately, the `a = 42` ordered form, and similar variations, is quite prevalent in modern programming languages. If it feels unnatural, just spend some time rehearsing that ordering in your mind to get accustomed to it.
+**Warning:** This may seem like a strange reverse order to specify assignment. Instead of `a = 42`, some might prefer to __flip__(调整) the order so the source value is on the left and the target variable is on the right, like `42 -> a` (this is not valid JavaScript!). Unfortunately, the `a = 42` ordered form, and similar variations, is quite __prevalent__(common) in modern programming languages. If it feels unnatural, just spend some time __rehearsing__(practice) that ordering in your mind to get accustomed to it.
 
 Consider:
 
@@ -221,13 +221,13 @@ When you later ask if the phone includes a charger, that answer could only have 
 
 In very similar ways, when you express values in a program, you choose different representations for those values based on what you plan to do with them.
 
-These different representations for values are called *types* in programming terminology. JavaScript has built-in types for each of these so called *primitive* values:
+__These different representations for values are called *types* in programming terminology.__ JavaScript has built-in types for each of these so called *primitive* values:
 
 * When you need to do math, you want a `number`.
 * When you need to print a value on the screen, you need a `string` (one or more characters, words, sentences).
 * When you need to make a decision in your program, you need a `boolean` (`true` or `false`).
 
-Values that are included directly in the source code are called *literals*. `string` literals are surrounded by double quotes `"..."` or single quotes (`'...'`) -- the only difference is stylistic preference. `number` and `boolean` literals are just presented as is (i.e., `42`, `true`, etc.).
+__Values that are included directly in the source code are called *literals*.__ `string` literals are surrounded by double quotes `"..."` or single quotes (`'...'`) -- the only difference is stylistic preference. `number` and `boolean` literals are just presented as is (i.e., `42`, `true`, etc.).
 
 Consider:
 
@@ -247,7 +247,7 @@ Beyond `string`/`number`/`boolean` value types, it's common for programming lang
 
 If you have a `number` but need to print it on the screen, you need to convert the value to a `string`, and in JavaScript this conversion is called "coercion." Similarly, if someone enters a series of numeric characters into a form on an ecommerce page, that's a `string`, but if you need to then use that value to do math operations, you need to *coerce* it to a `number`.
 
-JavaScript provides several different facilities for forcibly coercing between *types*. For example:
+JavaScript provides several different facilities for __forcibly coercing__(强制类型转换) between *types*. For example:
 
 ```js
 var a = "42";
@@ -259,7 +259,7 @@ console.log( b );	// 42
 
 Using `Number(..)` (a built-in function) as shown is an *explicit* coercion from any other type to the `number` type. That should be pretty straightforward.
 
-But a controversial topic is what happens when you try to compare two values that are not already of the same type, which would require *implicit* coercion.
+But a __controversial__(有争议的) topic is what happens when you try to compare two values that are not already of the same type, which would require *implicit* coercion.
 
 When comparing the string `"99.99"` to the number `99.99`, most people would agree they are equivalent. But they're not exactly the same, are they? It's the same value in two different representations, two different *types*. You could say they're "loosely equal," couldn't you?
 
@@ -267,7 +267,7 @@ To help you out in these common situations, JavaScript will sometimes kick in an
 
 So if you use the `==` loose equals operator to make the comparison `"99.99" == 99.99`, JavaScript will convert the left-hand side `"99.99"` to its `number` equivalent `99.99`. The comparison then becomes `99.99 == 99.99`, which is of course `true`.
 
-While designed to help you, implicit coercion can create confusion if you haven't taken the time to learn the rules that govern its behavior. Most JS developers never have, so the common feeling is that implicit coercion is confusing and harms programs with unexpected bugs, and should thus be avoided. It's even sometimes called a flaw in the design of the language.
+While designed to help you, implicit coercion can create confusion if you haven't taken the time to learn the rules that __govern__(control) its behavior. Most JS developers never have, so the common feeling is that implicit coercion is confusing and harms programs with unexpected bugs, and should thus be avoided. It's even sometimes called a __flaw__(mistake) in the design of the language.
 
 However, implicit coercion is a mechanism that *can be learned*, and moreover *should be learned* by anyone wishing to take JavaScript programming seriously. Not only is it not confusing once you learn the rules, it can actually make your programs better! The effort is well worth it.
 
@@ -275,13 +275,13 @@ However, implicit coercion is a mechanism that *can be learned*, and moreover *s
 
 ## Code Comments
 
-The phone store employee might jot down some notes on the features of a newly released phone or on the new plans her company offers. These notes are only for the employee -- they're not for customers to read. Nevertheless, these notes help the employee do her job better by documenting the hows and whys of what she should tell customers.
+The phone store employee might __jot__(write) down some notes on the features of a newly released phone or on the new plans her company offers. These notes are only for the employee -- they're not for customers to read. Nevertheless, these notes help the employee do her job better by documenting the hows and whys of what she should tell customers.
 
 One of the most important lessons you can learn about writing code is that it's not just for the computer. Code is every bit as much, if not more, for the developer as it is for the compiler.
 
 Your computer only cares about machine code, a series of binary 0s and 1s, that comes from *compilation*. There's a nearly infinite number of programs you could write that yield the same series of 0s and 1s. The choices you make about how to write your program matter -- not only to you, but to your other team members and even to your future self.
 
-You should strive not just to write programs that work correctly, but programs that make sense when examined. You can go a long way in that effort by choosing good names for your variables (see "Variables") and functions (see "Functions").
+You should __strive__(努力) not just to write programs that work correctly, but programs that make sense when examined. You can go a long way in that effort by choosing good names for your variables (see "Variables") and functions (see "Functions").
 
 But another important part is code comments. These are bits of text in your program that are inserted purely to explain things to a human. The interpreter/compiler will always ignore these comments.
 
@@ -333,7 +333,7 @@ console.log( a );	// 42
 
 The only thing that cannot appear inside a multiline comment is a `*/`, because that would be interpreted to end the comment.
 
-You will definitely want to begin your learning of programming by starting off with the habit of commenting code. Throughout the rest of this chapter, you'll see I use comments to explain things, so do the same in your own practice. Trust me, everyone who reads your code will thank you!
+You will __definitely__(certainly) want to begin your learning of programming by starting off with the habit of commenting code. Throughout the rest of this chapter, you'll see I use comments to explain things, so do the same in your own practice. Trust me, everyone who reads your code will thank you!
 
 ## Variables
 
@@ -343,7 +343,9 @@ The easiest way to go about that in your program is to assign a value to a symbo
 
 In some programming languages, you declare a variable (container) to hold a specific type of value, such as `number` or `string`. *Static typing*, otherwise known as *type enforcement*, is typically cited as a benefit for program correctness by preventing unintended value conversions.
 
-Other languages emphasize types for values instead of variables. *Weak typing*, otherwise known as *dynamic typing*, allows a variable to hold any type of value at any time. It's typically cited as a benefit for program flexibility by allowing a single variable to represent a value no matter what type form that value may take at any given moment in the program's logic flow.
+__Other languages emphasize types for values instead of variables.__ *Weak typing*, otherwise known as *dynamic typing*, allows a variable to hold any type of value at any time. It's typically cited as a benefit for program flexibility by allowing a single variable to represent a value no matter what type form that value may take at any given moment in the program's logic flow.
+
+笔记：不管是静态类型编程语言还是弱类型编程语言，**值**都是有类型的，区别在于**变量**允许存放的值的类型是否固定不变。
 
 JavaScript uses the latter approach, *dynamic typing*, meaning variables can hold values of any *type* without any *type* enforcement.
 
@@ -371,7 +373,7 @@ Then the statement `amount = "$" + String(amount)` *explicitly* coerces the `199
 
 JavaScript developers will note the flexibility of using the `amount` variable for each of the `99.99`, `199.98`, and the `"$199.98"` values. Static-typing enthusiasts would prefer a separate variable like `amountStr` to hold the final `"$199.98"` representation of the value, because it's a different type.
 
-Either way, you'll note that `amount` holds a running value that changes over the course of the program, illustrating the primary purpose of variables: managing program *state*.
+Either way, you'll note that `amount` holds a running value that changes over the course of the program, illustrating the primary purpose of variables: __managing program *state*__.
 
 In other words, *state* is tracking the changes to values as your program runs.
 
@@ -570,7 +572,7 @@ for (var i = 0; i <= 9; i = i + 1) {
 
 As you can see, in both cases the conditional `i <= 9` is `true` for the first 10 iterations (`i` of values `0` through `9`) of either loop form, but becomes `false` once `i` is value `10`.
 
-The `for` loop has three clauses: the initialization clause (`var i=0`), the conditional test clause (`i <= 9`), and the update clause (`i = i + 1`). So if you're going to do counting with your loop iterations, `for` is a more compact and often easier form to understand and write.
+The `for` loop has three __clauses__(部分): the initialization clause (`var i=0`), the conditional test clause (`i <= 9`), and the update clause (`i = i + 1`). So if you're going to do counting with your loop iterations, `for` is a more compact and often easier form to understand and write.
 
 There are other specialized loop forms that are intended to iterate over specific values, such as the properties of an object (see Chapter 2) where the implied conditional test is just whether all the properties have been processed. The "loop until a condition fails" concept holds no matter what the form of the loop.
 
@@ -645,7 +647,7 @@ Although `calculateFinalPurchaseAmount(..)` is only called once, organizing its 
 
 If you ask the phone store employee for a phone model that her store doesn't carry, she will not be able to sell you the phone you want. She only has access to the phones in her store's inventory. You'll have to try another store to see if you can find the phone you're looking for.
 
-Programming has a term for this concept: *scope* (technically called *lexical scope*). In JavaScript, each function gets its own scope. Scope is basically a collection of variables as well as the rules for how those variables are accessed by name. Only code inside that function can access that function's *scoped* variables.
+Programming has a term for this concept: *scope* (technically called *lexical scope*). In JavaScript, each function gets its own scope. __Scope is basically a collection of variables as well as the rules for how those variables are accessed by name.__ Only code inside that function can access that function's *scoped* variables.
 
 A variable name has to be unique within the same scope -- there can't be two different `a` variables sitting right next to each other. But the same variable name `a` could appear in different scopes.
 
@@ -666,7 +668,7 @@ one();		// 1
 two();		// 2
 ```
 
-Also, a scope can be nested inside another scope, just like if a clown at a birthday party blows up one balloon inside another balloon. If one scope is nested inside another, code inside the innermost scope can access variables from either scope.
+Also, a scope can be nested inside another scope, just like if a clown at a birthday party blows up one __balloon__(气球) inside another balloon. If one scope is nested inside another, code inside the innermost scope can access variables from either scope.
 
 Consider:
 
@@ -714,7 +716,7 @@ The `TAX_RATE` constant (variable) is accessible from inside the `calculateFinal
 
 ## Practice
 
-There is absolutely no substitute for practice in learning programming. No amount of articulate writing on my part is alone going to make you a programmer.
+There is absolutely no substitute for practice in learning programming. No amount of __articulate__(清晰的) writing on my part is alone going to make you a programmer.
 
 With that in mind, let's try practicing some of the concepts we learned here in this chapter. I'll give the "requirements," and you try it first. Then consult the code listing below to see how I approached it.
 
@@ -795,7 +797,7 @@ These act like building blocks. To build a tall tower, you start first by puttin
 
 Code comments are one effective way to write more readable code, which makes your program easier to understand, maintain, and fix later if there are problems.
 
-Finally, don't neglect the power of practice. The best way to learn how to write code is to write code.
+Finally, don't __neglect__(忽视) the power of practice. The best way to learn how to write code is to write code.
 
 I'm excited you're well on your way to learning how to code, now! Keep it up. Don't forget to check out other beginner programming resources (books, blogs, online training, etc.). This chapter and this book are a great start, but they're just a brief introduction.
 

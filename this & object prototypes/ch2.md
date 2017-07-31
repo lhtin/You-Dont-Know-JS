@@ -7,7 +7,7 @@ In Chapter 1, we discarded various misconceptions about `this` and learned inste
 
 To understand `this` binding, we have to understand the call-site: the location in code where a function is called (**not where it's declared**). We must inspect the call-site to answer the question: what's *this* `this` a reference to?
 
-Finding the call-site is generally: "go locate where a function is called from", but it's not always that easy, as certain coding patterns can obscure the *true* call-site.
+Finding the call-site is generally: "go locate where a function is called from", but it's not always that easy, as certain coding patterns can __obscure__(隐藏) the *true* call-site.
 
 What's important is to think about the **call-stack** (the stack of functions that have been called to get us to the current moment in execution). The call-site we care about is *in* the invocation *before* the currently executing function.
 
@@ -42,7 +42,7 @@ baz(); // <-- call-site for `baz`
 
 Take care when analyzing code to find the actual call-site (from the call-stack), because it's the only thing that matters for `this` binding.
 
-**Note:** You can visualize a call-stack in your mind by looking at the chain of function calls in order, as we did with the comments in the above snippet. But this is painstaking and error-prone. Another way of seeing the call-stack is using a debugger tool in your browser. Most modern desktop browsers have built-in developer tools, which includes a JS debugger. In the above snippet, you could have set a breakpoint in the tools for the first line of the `foo()` function, or simply inserted the `debugger;` statement on that first line. When you run the page, the debugger will pause at this location, and will show you a list of the functions that have been called to get to that line, which will be your call stack. So, if you're trying to diagnose `this` binding, use the developer tools to get the call-stack, then find the second item from the top, and that will show you the real call-site.
+**Note:** You can visualize a call-stack in your mind by looking at the chain of function calls in order, as we did with the comments in the above snippet. But this is __painstaking__(要求非常小心) and __error-prone__(容易导致错误). Another way of seeing the call-stack is using a debugger tool in your browser. Most modern desktop browsers have built-in developer tools, which includes a JS debugger. In the above snippet, you could have set a breakpoint in the tools for the first line of the `foo()` function, or simply inserted the `debugger;` statement on that first line. When you run the page, the debugger will pause at this location, and will show you a list of the functions that have been called to get to that line, which will be your call stack. So, if you're trying to diagnose `this` binding, use the developer tools to get the call-stack, then find the second item from the top, and that will show you the real call-site.
 
 ## Nothing But Rules
 
@@ -66,13 +66,13 @@ var a = 2;
 foo(); // 2
 ```
 
-The first thing to note, if you were not already aware, is that variables declared in the global scope, as `var a = 2` is, are synonymous with global-object properties of the same name. They're not copies of each other, they *are* each other. Think of it as two sides of the same coin.
+The first thing to note, if you were not already aware, is that variables declared in the global scope, as `var a = 2` is, are __synonymous__(same) with global-object properties of the same name. They're not copies of each other, they *are* each other. Think of it as two sides of the same coin.
 
-Secondly, we see that when `foo()` is called, `this.a` resolves to our global variable `a`. Why? Because in this case, the *default binding* for `this` applies to the function call, and so points `this` at the global object.
+Secondly, we see that when `foo()` is called, `this.a` __resolves__(find) to our global variable `a`. Why? Because in this case, the *default binding* for `this` applies to the function call, and so points `this` at the global object.
 
 How do we know that the *default binding* rule applies here? We examine the call-site to see how `foo()` is called. In our snippet, `foo()` is called with a plain, un-decorated function reference. None of the other rules we will demonstrate will apply here, so the *default binding* applies instead.
 
-If `strict mode` is in effect, the global object is not eligible for the *default binding*, so the `this` is instead set to `undefined`.
+If `strict mode` is in effect, the global object is not __eligible__(allow) for the *default binding*, so the `this` is instead set to `undefined`.
 
 ```js
 function foo() {
@@ -218,7 +218,7 @@ var a = "oops, global"; // `a` also property on global object
 setTimeout( obj.foo, 100 ); // "oops, global"
 ```
 
-Think about this crude theoretical pseudo-implementation of `setTimeout()` provided as a built-in from the JavaScript environment:
+Think about this __crude__(近似) theoretical pseudo-implementation of `setTimeout()` provided as a built-in from the JavaScript environment:
 
 ```js
 function setTimeout(fn,delay) {
@@ -227,13 +227,13 @@ function setTimeout(fn,delay) {
 }
 ```
 
-It's quite common that our function callbacks *lose* their `this` binding, as we've just seen. But another way that `this` can surprise us is when the function we've passed our callback to intentionally changes the `this` for the call. Event handlers in popular JavaScript libraries are quite fond of forcing your callback to have a `this` which points to, for instance, the DOM element that triggered the event. While that may sometimes be useful, other times it can be downright infuriating. Unfortunately, these tools rarely let you choose.
+It's quite common that our function callbacks *lose* their `this` binding, as we've just seen. But another way that `this` can surprise us is when the function we've passed our callback to intentionally changes the `this` for the call. Event handlers in popular JavaScript libraries are quite __fond__(like) of forcing your callback to have a `this` which points to, for instance, the DOM element that triggered the event. While that may sometimes be useful, other times it can be downright infuriating. Unfortunately, these tools rarely let you choose.
 
 Either way the `this` is changed unexpectedly, you are not really in control of how your callback function reference will be executed, so you have no way (yet) of controlling the call-site to give your intended binding. We'll see shortly a way of "fixing" that problem by *fixing* the `this`.
 
 ### Explicit Binding
 
-With *implicit binding* as we just saw, we had to mutate the object in question to include a reference on itself to the function, and use this property function reference to indirectly (implicitly) bind `this` to the object.
+With *implicit binding* as we just saw, we had to mutate the object __in question__(discuss) to include a reference on itself to the function, and use this property function reference to indirectly (implicitly) bind `this` to the object.
 
 But, what if you want to force a function call to use a particular object for the `this` binding, without putting a property function reference on the object?
 
@@ -398,7 +398,7 @@ For example, the `Number(..)` function acting as a constructor, quoting from the
 >
 > When Number is called as part of a new expression it is a constructor: it initialises the newly created object.
 
-So, pretty much any ol' function, including the built-in object functions like `Number(..)` (see Chapter 3) can be called with `new` in front of it, and that makes that function call a *constructor call*. This is an important but subtle distinction: there's really no such thing as "constructor functions", but rather construction calls *of* functions.
+So, pretty much any ol' function, including the built-in object functions like `Number(..)` (see Chapter 3) can be called with `new` in front of it, and that makes that function call a *constructor call*. This is an important but subtle distinction: __there's really no such thing as "constructor functions", but rather construction calls *of* functions.__
 
 When a function is invoked with `new` in front of it, otherwise known as a constructor call, the following things are done automatically:
 
@@ -767,7 +767,7 @@ The soft-bound version of the `foo()` function can be manually `this`-bound to `
 
 ## Lexical `this`
 
-Normal functions abide by the 4 rules we just covered. But ES6 introduces a special kind of function that does not use these rules: arrow-function.
+Normal functions __abide by__(obey) the 4 rules we just covered. But ES6 introduces a special kind of function that does not use these rules: arrow-function.
 
 Arrow-functions are signified not by the `function` keyword, but by the `=>` so called "fat arrow" operator. Instead of using the four standard `this` rules, arrow-functions adopt the `this` binding from the enclosing (function or global) scope.
 

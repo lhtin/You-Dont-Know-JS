@@ -3,25 +3,25 @@
 
 We arrive at this point with hopefully a very healthy, solid understanding of how scope works.
 
-We turn our attention to an incredibly important, but persistently elusive, *almost mythological*, part of the language: **closure**. If you have followed our discussion of lexical scope thus far, the payoff is that closure is going to be, largely, anticlimactic, almost self-obvious. *There's a man behind the wizard's curtain, and we're about to see him*. No, his name is not Crockford!
+We turn our attention to an incredibly important, but persistently __elusive__(难以理解的), *almost __mythological__(错误的)*, part of the language: **closure**. If you have followed our discussion of lexical scope thus far, the payoff is that closure is going to be, largely, __anticlimactic__(失望), almost self-obvious. *There's a man behind the wizard's curtain, and we're about to see him*. No, his name is not Crockford!
 
 If however you have nagging questions about lexical scope, now would be a good time to go back and review Chapter 2 before proceeding.
 
 ## Enlightenment
 
-For those who are somewhat experienced in JavaScript, but have perhaps never fully grasped the concept of closures, *understanding closure* can seem like a special nirvana that one must strive and sacrifice to attain.
+For those who are somewhat experienced in JavaScript, but have perhaps never fully grasped the concept of closures, *understanding closure* can seem like a special nirvana that one must __strive__(竭尽全力) and __sacrifice to attain__(重新认识).
 
-I recall years back when I had a firm grasp on JavaScript, but had no idea what closure was. The hint that there was *this other side* to the language, one which promised even more capability than I already possessed, teased and taunted me. I remember reading through the source code of early frameworks trying to understand how it actually worked. I remember the first time something of the "module pattern" began to emerge in my mind. I remember the *a-ha!* moments quite vividly.
+I recall years back when I had a firm __grasp on__(对...的理解) JavaScript, but had no idea what closure was. The hint that there was *this other side* to the language, one which promised even more capability than I already possessed, teased and taunted me. I remember reading through the source code of early frameworks trying to understand how it actually worked. I remember the first time something of the "module pattern" began to emerge in my mind. I remember the *a-ha!* moments quite vividly.
 
-What I didn't know back then, what took me years to understand, and what I hope to impart to you presently, is this secret: **closure is all around you in JavaScript, you just have to recognize and embrace it.** Closures are not a special opt-in tool that you must learn new syntax and patterns for. No, closures are not even a weapon that you must learn to wield and master as Luke trained in The Force.
+What I didn't know back then, what took me years to understand, and what I hope to __impart__(传授) to you presently, is this secret: **closure is all around you in JavaScript, you just have to recognize and __embrace__(accept) it.** Closures are not a special opt-in tool that you must learn new syntax and patterns for. No, closures are not even a __weapon__(武器) that you must learn to __wield__ and master as Luke trained in The Force.
 
-Closures happen as a result of writing code that relies on lexical scope. They just happen. You do not even really have to intentionally create closures to take advantage of them. Closures are created and used for you all over your code. What you are *missing* is the proper mental context to recognize, embrace, and leverage closures for your own will.
+Closures happen as a result of writing code that relies on lexical scope. They just happen. You do not even really have to intentionally create closures to take advantage of them. Closures are created and used for you all over your code. What you are *missing* is the proper mental context to recognize, embrace, and __leverage__(use) closures for your own will.
 
 The enlightenment moment should be: **oh, closures are already occurring all over my code, I can finally *see* them now.** Understanding closures is like when Neo sees the Matrix for the first time.
 
 ## Nitty Gritty
 
-OK, enough hyperbole and shameless movie references.
+OK, enough __hyperbole__(吹牛) and shameless movie references.
 
 Here's a down-n-dirty definition of what you need to know to understand and recognize closures:
 
@@ -107,6 +107,8 @@ function bar(fn) {
 }
 ```
 
+笔记：不管函数在哪执行，如何执行，它的外层作用域都一直是函数定义时所处的作用域。当函数不在定义时所处的作用域中执行时，它就通过闭包获得该作用域及所有外层作用域。
+
 We pass the inner function `baz` over to `bar`, and call that inner function (labeled `fn` now), and when we do, its closure over the inner scope of `foo()` is observed, by accessing `a`.
 
 These passings-around of functions can be indirect, too.
@@ -155,7 +157,7 @@ We take an inner function (named `timer`) and pass it to `setTimeout(..)`. But `
 
 A thousand milliseconds after we have executed `wait(..)`, and its inner scope should otherwise be long gone, that inner function `timer` still has closure over that scope.
 
-Deep down in the guts of the *Engine*, the built-in utility `setTimeout(..)` has reference to some parameter, probably called `fn` or `func` or something like that. *Engine* goes to invoke that function, which is invoking our inner `timer` function, and the lexical scope reference is still intact.
+Deep down in the __guts__(深处) of the *Engine*, the built-in utility `setTimeout(..)` has reference to some parameter, probably called `fn` or `func` or something like that. *Engine* goes to invoke that function, which is invoking our inner `timer` function, and the lexical scope reference is still __intact__(exist).
 
 **Closure.**
 
@@ -200,7 +202,7 @@ Now... you see!
 
 ## Loops + Closure
 
-The most common canonical example used to illustrate closure involves the humble for-loop.
+The most common canonical example used to illustrate closure involves the __humble__(simple) for-loop.
 
 ```js
 for (var i=1; i<=5; i++) {
@@ -589,7 +591,7 @@ Closure seems to the un-enlightened like a mystical world set apart inside of Ja
 
 **Closure is when a function can remember and access its lexical scope even when it's invoked outside its lexical scope.**
 
-Closures can trip us up, for instance with loops, if we're not careful to recognize them and how they work. But they are also an immensely powerful tool, enabling patterns like *modules* in their various forms.
+Closures can trip us up, for instance with loops, if we're not careful to recognize them and how they work. But they are also an __immensely__(very) powerful tool, enabling patterns like *modules* in their various forms.
 
 Modules require two key characteristics: 1) an outer wrapping function being invoked, to create the enclosing scope 2) the return value of the wrapping function must include reference to at least one inner function that then has closure over the private inner scope of the wrapper.
 

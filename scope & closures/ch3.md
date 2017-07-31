@@ -45,7 +45,7 @@ However, all these identifiers (`a`, `b`, `c`, `foo`, and `bar`) are accessible 
 
 Function scope encourages the idea that all variables belong to the function, and can be used and reused throughout the entirety of the function (and indeed, accessible even to nested scopes). This design approach can be quite useful, and certainly can make full use of the "dynamic" nature of JavaScript variables to take on values of different types as needed.
 
-On the other hand, if you don't take careful precautions, variables existing across the entirety of a scope can lead to some unexpected pitfalls.
+On the other hand, if you don't take careful __precautions__(防护措施), variables existing across the entirety of a scope can lead to some unexpected pitfalls.
 
 ## Hiding In Plain Scope
 
@@ -101,7 +101,7 @@ Now, `b` and `doSomethingElse(..)` are not accessible to any outside influence, 
 
 ### Collision Avoidance
 
-Another benefit of "hiding" variables and functions inside a scope is to avoid unintended collision between two different identifiers with the same name but different intended usages. Collision results often in unexpected overwriting of values.
+Another benefit of "hiding" variables and functions inside a scope is to avoid unintended __collision__(碰撞) between two different identifiers with the same name but different intended usages. Collision results often in unexpected overwriting of values.
 
 For example:
 
@@ -128,7 +128,7 @@ The assignment inside `bar(..)` needs to declare a local variable to use, regard
 
 A particularly strong example of (likely) variable collision occurs in the global scope. Multiple libraries loaded into your program can quite easily collide with each other if they don't properly hide their internal/private functions and variables.
 
-Such libraries typically will create a single variable declaration, often an object, with a sufficiently unique name, in the global scope. This object is then used as a "namespace" for that library, where all specific exposures of functionality are made as properties off that object (namespace), rather than as top-level lexically scoped identifiers themselves.
+Such libraries typically will create a single variable declaration, often an object, with a sufficiently unique name, in the global scope. This object is then used as a "namespace" for that library, where all specific exposures of functionality are made as properties __off__(of) that object (namespace), rather than as top-level lexically scoped identifiers themselves.
 
 For example:
 
@@ -148,7 +148,7 @@ var MyReallyCoolLibrary = {
 
 Another option for collision avoidance is the more modern "module" approach, using any of various dependency managers. Using these tools, no libraries ever add any identifiers to the global scope, but are instead required to have their identifier(s) be explicitly imported into another specific scope through usage of the dependency manager's various mechanisms.
 
-It should be observed that these tools do not possess "magic" functionality that is exempt from lexical scoping rules. They simply use the rules of scoping as explained here to enforce that no identifiers are injected into any shared scope, and are instead kept in private, non-collision-susceptible scopes, which prevents any accidental scope collisions.
+It should be observed that these tools do not __possess__(have) "magic" functionality that is __exempt from__(不同于) lexical scoping rules. They simply use the rules of scoping as explained here to enforce that no identifiers are injected into any shared scope, and are instead kept in private, non-collision-susceptible scopes, which prevents any accidental scope collisions.
 
 As such, you can code defensively and achieve the same results as the dependency managers do without actually needing to use them, if you so choose. See the Chapter 5 for more information about the module pattern.
 
@@ -172,7 +172,7 @@ foo(); // <-- and this
 console.log( a ); // 2
 ```
 
-While this technique "works", it is not necessarily very ideal. There are a few problems it introduces. The first is that we have to declare a named-function `foo()`, which means that the identifier name `foo` itself "pollutes" the enclosing scope (global, in this case). We also have to explicitly call the function by name (`foo()`) so that the wrapped code actually executes.
+While this technique "works", it is not necessarily very ideal. There are a few problems it introduces. The first is that we have to declare a named-function `foo()`, which means that the identifier name `foo` itself "__pollutes__(污染)" the enclosing scope (global, in this case). We also have to explicitly call the function by name (`foo()`) so that the wrapped code actually executes.
 
 It would be more ideal if the function didn't need a name (or, rather, the name didn't pollute the enclosing scope), and if the function could automatically be executed.
 
@@ -246,7 +246,7 @@ var a = 2;
 console.log( a ); // 2
 ```
 
-Now that we have a function as an expression by virtue of wrapping it in a `( )` pair, we can execute that function by adding another `()` on the end, like `(function foo(){ .. })()`. The first enclosing `( )` pair makes the function an expression, and the second `()` executes the function.
+Now that we have a function as an expression __by virtue of__(as a result of) wrapping it in a `( )` pair, we can execute that function by adding another `()` on the end, like `(function foo(){ .. })()`. The first enclosing `( )` pair makes the function an expression, and the second `()` executes the function.
 
 This pattern is so common, a few years ago the community agreed on a term for it: **IIFE**, which stands for **I**mmediately **I**nvoked **F**unction **E**xpression.
 
@@ -326,7 +326,7 @@ The `def` function expression is defined in the second-half of the snippet, and 
 
 While functions are the most common unit of scope, and certainly the most wide-spread of the design approaches in the majority of JS in circulation, other units of scope are possible, and the usage of these other scope units can lead to even better, cleaner to maintain code.
 
-Many languages other than JavaScript support Block Scope, and so developers from those languages are accustomed to the mindset, whereas those who've primarily only worked in JavaScript may find the concept slightly foreign.
+Many languages other than JavaScript support Block Scope, and so developers from those languages are __accustomed__(familiar) to the __mindset__, whereas those who've primarily only worked in JavaScript may find the concept slightly foreign.
 
 But even if you've never written a single line of code in block-scoped fashion, you are still probably familiar with this extremely common idiom in JavaScript:
 
@@ -401,11 +401,11 @@ The block-scoping nature of `catch` may seem like a useless academic fact, but s
 
 ### `let`
 
-Thus far, we've seen that JavaScript only has some strange niche behaviors which expose block scope functionality. If that were all we had, and *it was* for many, many years, then block scoping would not be terribly useful to the JavaScript developer.
+Thus far, we've seen that JavaScript only has some strange niche behaviors which expose block scope functionality. If that were all we had, and *it was* for many, many years, then block scoping would not be __terribly__(very) useful to the JavaScript developer.
 
 Fortunately, ES6 changes that, and introduces a new keyword `let` which sits alongside `var` as another way to declare variables.
 
-The `let` keyword attaches the variable declaration to the scope of whatever block (commonly a `{ .. }` pair) it's contained in. In other words, `let` implicitly hijacks any block's scope for its variable declaration.
+The `let` keyword attaches the variable declaration to the scope of whatever block (commonly a `{ .. }` pair) it's contained in. In other words, `let` implicitly __hijacks__(control) any block's scope for its variable declaration.
 
 ```js
 var foo = true;
@@ -454,7 +454,7 @@ However, declarations made with `let` will *not* hoist to the entire scope of th
 
 #### Garbage Collection
 
-Another reason block-scoping is useful relates to closures and garbage collection to reclaim memory. We'll briefly illustrate here, but the closure mechanism is explained in detail in Chapter 5.
+Another reason block-scoping is useful relates to closures and garbage collection to __reclaim__(回收) memory. We'll briefly illustrate here, but the closure mechanism is explained in detail in Chapter 5.
 
 Consider:
 
@@ -527,7 +527,7 @@ Here's another way of illustrating the per-iteration binding behavior that occur
 
 The reason why this per-iteration binding is interesting will become clear in Chapter 5 when we discuss closures.
 
-Because `let` declarations attach to arbitrary blocks rather than to the enclosing function's scope (or global), there can be gotchas where existing code has a hidden reliance on function-scoped `var` declarations, and replacing the `var` with `let` may require additional care when refactoring code.
+Because `let` declarations attach to arbitrary blocks rather than to the enclosing function's scope (or global), there can be __gotchas__ where existing code has a hidden reliance on function-scoped `var` declarations, and replacing the `var` with `let` may require additional care when refactoring code.
 
 Consider:
 
@@ -606,6 +606,6 @@ Starting with ES3, the `try/catch` structure has block-scope in the `catch` clau
 
 In ES6, the `let` keyword (a cousin to the `var` keyword) is introduced to allow declarations of variables in any arbitrary block of code. `if (..) { let a = 2; }` will declare a variable `a` that essentially hijacks the scope of the `if`'s `{ .. }` block and attaches itself there.
 
-Though some seem to believe so, block scope should not be taken as an outright replacement of `var` function scope. Both functionalities co-exist, and developers can and should use both function-scope and block-scope techniques where respectively appropriate to produce better, more readable/maintainable code.
+Though some seem to believe so, block scope should not be taken as an __outright__(direct) replacement of `var` function scope. Both functionalities co-exist, and developers can and should use both function-scope and block-scope techniques where respectively appropriate to produce better, more readable/maintainable code.
 
 [^note-leastprivilege]: [Principle of Least Privilege](http://en.wikipedia.org/wiki/Principle_of_least_privilege)

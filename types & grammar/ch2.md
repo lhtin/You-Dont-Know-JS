@@ -1,7 +1,7 @@
 # You Don't Know JS: Types & Grammar
 # Chapter 2: Values
 
-`array`s, `string`s, and `number`s are the most basic building-blocks of any program, but JavaScript has some unique characteristics with these types that may either delight or confound you.
+`array`s, `string`s, and `number`s are the most basic building-blocks of any program, but JavaScript has some unique characteristics with these types that may either delight or __confound__(confuse) you.
 
 Let's look at several of the built-in value types in JS, and explore how we can more fully understand and correctly leverage their behaviors.
 
@@ -173,7 +173,7 @@ c;				// "f-o-o"
 d;				// "F.O.O."
 ```
 
-Let's take another example: reversing a `string` (incidentally, a common JavaScript interview trivia question!). `array`s have a `reverse()` in-place mutator method, but `string`s do not:
+Let's take another example: reversing a `string` (__incidentally__(无意), a common JavaScript interview trivia question!). `array`s have a `reverse()` in-place mutator method, but `string`s do not:
 
 ```js
 a.reverse;		// undefined
@@ -346,7 +346,7 @@ As of ES6, the following new forms are also valid:
 
 ```js
 0o363;		// octal for: 243
-0O363;		// ditto
+0O363;		// __ditto__(可选的)
 
 0b11110011;	// binary for: 243
 0B11110011; // ditto
@@ -404,7 +404,7 @@ The maximum floating-point value that can be represented is roughly `1.798e+308`
 
 Because of how `number`s are represented, there is a range of "safe" values for the whole `number` "integers", and it's significantly less than `Number.MAX_VALUE`.
 
-The maximum integer that can "safely" be represented (that is, there's a guarantee that the requested value is actually representable unambiguously) is `2^53 - 1`, which is `9007199254740991`. If you insert your commas, you'll see that this is just over 9 quadrillion. So that's pretty darn big for `number`s to range up to.
+The maximum integer that can "safely" be represented (that is, there's a guarantee that the requested value is actually representable unambiguously) is `2^53 - 1`, which is `9007199254740991`. If you insert your commas, you'll see that this is just over 9 quadrillion. So that's pretty __darn__ big for `number`s to range up to.
 
 This value is actually automatically predefined in ES6, as `Number.MAX_SAFE_INTEGER`. Unsurprisingly, there's a minimum value, `-9007199254740991`, and it's defined in ES6 as `Number.MIN_SAFE_INTEGER`.
 
@@ -586,7 +586,7 @@ var a = 2 / "foo";		// NaN
 typeof a === "number";	// true
 ```
 
-In other words: "the type of not-a-number is 'number'!" Hooray for confusing names and semantics.
+In other words: "the type of not-a-number is 'number'!" __Hooray__ for confusing names and semantics.
 
 `NaN` is a kind of "sentinel value" (an otherwise normal value that's assigned a special meaning) that represents a special kind of error condition within the `number` set. The error condition is, in essence: "I tried to perform a mathematic operation but failed, so here's the failed `number` result instead."
 
@@ -682,7 +682,7 @@ var b = -1 / 0;	// -Infinity
 
 As you can see, `-Infinity` (aka `Number.NEGATIVE_INFINITY`) results from a divide-by-zero where either (but not both!) of the divide operands is negative.
 
-JS uses finite numeric representations (IEEE 754 floating-point, which we covered earlier), so contrary to pure mathematics, it seems it *is* possible to overflow even with an operation like addition or subtraction, in which case you'd get `Infinity` or `-Infinity`.
+JS uses finite numeric representations (IEEE 754 floating-point, which we covered earlier), so __contrary__(不同于) to pure mathematics, it seems it *is* possible to overflow even with an operation like addition or subtraction, in which case you'd get `Infinity` or `-Infinity`.
 
 For example:
 
@@ -827,7 +827,7 @@ In JavaScript, there are no pointers, and references work a bit differently. You
 
 A reference in JS points at a (shared) **value**, so if you have 10 different references, they are all always distinct references to a single shared value; **none of them are references/pointers to each other.**
 
-Moreover, in JavaScript, there are no syntactic hints that control value vs. reference assignment/passing. Instead, the *type* of the value *solely* controls whether that value will be assigned by value-copy or by reference-copy.
+Moreover, in JavaScript, there are no syntactic hints that control value vs. reference assignment/passing. Instead, the *type* of the value __*solely*__(only) controls whether that value will be assigned by value-copy or by reference-copy.
 
 Let's illustrate:
 
@@ -960,7 +960,7 @@ foo( b );
 console.log( b ); // 2, not 3
 ```
 
-The problem is that the underlying scalar primitive value is *not mutable* (same goes for `String` and `Boolean`). If a `Number` object holds the scalar primitive value `2`, that exact `Number` object can never be changed to hold another value; you can only create a whole new `Number` object with a different value.
+__The problem is that the underlying scalar primitive value is *not mutable* (same goes for `String` and `Boolean`).__ If a `Number` object holds the scalar primitive value `2`, that exact `Number` object can never be changed to hold another value; you can only create a whole new `Number` object with a different value.
 
 When `x` is used in the expression `x + 1`, the underlying scalar primitive value `2` is unboxed (extracted) from the `Number` object automatically, so the line `x = x + 1` very subtly changes `x` from being a shared reference to the `Number` object, to just holding the scalar primitive value `3` as a result of the addition operation `2 + 1`. Therefore, `b` on the outside still references the original unmodified/immutable `Number` object holding the value `2`.
 
