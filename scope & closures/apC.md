@@ -111,4 +111,4 @@ Whether you prefer the new lexical-this behavior of arrow-functions, or you pref
 
 They have an *intentional behavioral difference* that we should learn and understand, and if we so choose, leverage.
 
-Now that we fully understand lexical scoping (and closure!), understanding lexical-this should be a breeze!
+Now that we fully understand lexical scoping (and closure!), understanding lexical-this should __be a breeze__(to be very easy)!

@@ -3,7 +3,7 @@
 
 One of the most fundamental paradigms of nearly all programming languages is the ability to store values in variables, and later retrieve or modify those values. In fact, the ability to store values and pull values out of variables is what gives a program *state*.
 
-Without such a concept, a program could perform some tasks, but they would be extremely limited and not terribly interesting.
+Without such a concept, a program could perform some tasks, but they would be extremely limited and not __terribly__(very) interesting.
 
 But the inclusion of variables into our program __begets__(cause) the most interesting questions we will now address: where do those variables *live*? In other words, where are they stored? And, most importantly, how does our program find them when it needs them?
 
@@ -33,23 +33,23 @@ In traditional compiled-language process, a chunk of source code, your program, 
 
     **Note:** The details of how the engine manages system resources are deeper than we will dig, so we'll just take it for granted that the engine is able to create and store variables as needed.
 
-The JavaScript engine is vastly more complex than *just* those three steps, as are most other language compilers. For instance, in the process of parsing and code-generation, there are certainly steps to optimize the performance of the execution, including collapsing redundant elements, etc.
+The JavaScript engine is __vastly__(very much) more complex than *just* those three steps, as are most other language compilers. For instance, in the process of parsing and code-generation, there are certainly steps to optimize the performance of the execution, including __collapsing__(消除，折叠) redundant elements, etc.
 
 So, I'm painting only with broad strokes here. But I think you'll see shortly why *these* details we *do* cover, even at a high level, are relevant.
 
 For one thing, JavaScript engines don't get the __luxury__(倾向) (like other language compilers) of having plenty of time to optimize, because JavaScript compilation doesn't happen in a build step ahead of time, as with other languages.
 
-For JavaScript, the compilation that occurs happens, in many cases, mere microseconds (or less!) before the code is executed. To ensure the fastest performance, JS engines use all kinds of tricks (like JITs, which lazy compile and even hot re-compile, etc.) which are well beyond the "scope" of our discussion here.
+For JavaScript, the compilation that occurs happens, in many cases, __mere__(仅仅只有) microseconds (or less!) before the code is executed. To ensure the fastest performance, JS engines use all kinds of tricks (like JITs, which lazy compile and even hot re-compile, etc.) which are well beyond the "scope" of our discussion here.
 
 Let's just say, for simplicity's sake, that any snippet of JavaScript has to be compiled before (usually *right* before!) it's executed. So, the JS compiler will take the program `var a = 2;` and compile it *first*, and then be ready to execute it, usually right away.
 
 ## Understanding Scope
 
-The way we will approach learning about scope is to think of the process in terms of a conversation. But, *who* is having the conversation?
+The way we will __approach__(move towards) learning about scope is to think of the process __in terms of__(通过，使用) a conversation. But, *who* is having the conversation?
 
 ### The Cast
 
-Let's meet the cast of characters that interact to process the program `var a = 2;`, so we understand their conversations that we'll listen in on shortly:
+Let's meet the __cast__(角色) of characters that interact to process the program `var a = 2;`, so we understand their conversations that we'll listen in on shortly:
 
 1. *Engine*: responsible for start-to-finish compilation and execution of our JavaScript program.
 
@@ -57,7 +57,7 @@ Let's meet the cast of characters that interact to process the program `var a = 
 
 3. *Scope*: another friend of *Engine*; collects and maintains a look-up list of all the declared identifiers (variables), and enforces a strict set of rules as to how these are accessible to currently executing code.
 
-__For you to *fully understand* how JavaScript works, you need to begin to *think* like *Engine* (and friends) think, ask the questions they ask, and answer those questions the same.__
+For you to *fully understand* how JavaScript works, you need to begin to *think* like *Engine* (and friends) think, ask the questions they ask, and answer those questions the same.
 
 ### Back & Forth
 
