@@ -11,7 +11,7 @@ We'll see that these concepts don't really map very naturally to the object mech
 
 "Class/Inheritance" describes a certain form of code organization and architecture -- a way of modeling real world problem domains in our software.
 
-OO or class oriented programming stresses that data __intrinsically__ has associated behavior (of course, different depending on the type and nature of the data!) that operates on it, so proper design is to package up (aka, __encapsulate__(封装)) the data and the behavior together. This is sometimes called "data structures" in formal computer science.
+OO or class oriented programming stresses that data __intrinsically__(本质上) has associated behavior (of course, different depending on the type and nature of the data!) that operates on it, so proper design is to package up (aka, __encapsulate__(封装)) the data and the behavior together. This is sometimes called "data structures" in formal computer science.
 
 For example, a series of characters that represents a word or phrase is usually called a "string". The characters are the data. But you almost never just care about the data, you usually want to *do things* with the data, so the behaviors that can apply *to* that data (calculating its length, appending data, searching, etc.) are all designed as methods of a `String` class.
 
@@ -39,7 +39,7 @@ Class theory strongly suggests that a parent class and a child class share the s
 
 You may never have thought about classes as a "design pattern", since it's most common to see discussion of popular "OO Design Patterns", like "Iterator", "Observer", "Factory", "Singleton", etc. As presented this way, it's almost an assumption that OO classes are the lower-level mechanics by which we implement all (higher level) design patterns, as if OO is a given foundation for *all* (proper) code.
 
-Depending on your level of formal education in programming, you may have heard of "procedural programming" as a way of describing code which only consists of procedures (aka, functions) calling other functions, without any higher abstractions. You may have been taught that classes were the *proper* way to transform procedural-style "spaghetti code" into well-formed, well-organized code.
+Depending on your level of formal education in programming, you may have heard of "procedural programming" as a way of describing code which only consists of procedures (aka, functions) calling other functions, without any higher abstractions. You may have been taught that classes were the *proper* way to transform procedural-style "__spaghetti__(意大利面条似的) code" into well-formed, well-organized code.
 
 Of course, if you have experience with "functional programming" (Monads, etc.), you know very well that classes are just one of several common design patterns. But for others, this may be the first time you've asked yourself if classes really are a fundamental foundation for code, or if they are an optional abstraction on top of code.
 
@@ -218,7 +218,7 @@ Notice how for both instantiation (`a1`, `a2`, `b1`, and `b2`) *and* inheritance
 
 Conceptually, it would seem a child class `Bar` can access  behavior in its parent class `Foo` using a relative polymorphic reference (aka, `super`). However, in reality, the child class is merely given a copy of the inherited behavior from its parent class. If the child "overrides" a method it inherits, both the original and overridden versions of the method are actually maintained, so that they are both accessible.
 
-Don't let polymorphism confuse you into thinking a child class is linked to its parent class. A child class instead gets a copy of what it needs from the parent class. **Class inheritance implies copies.**
+__Don't let polymorphism confuse you into thinking a child class is linked to its parent class.__ A child class instead gets a copy of what it needs from the parent class. **Class inheritance implies copies.**
 
 ### Multiple Inheritance
 
@@ -356,7 +356,7 @@ mixin( {
 
 Either approach, we have explicitly copied the non-overlapping contents of `Vehicle` into `Car`. The name "mixin" comes from an alternate way of explaining the task: `Car` has `Vehicle`s contents **mixed-in**, just like you mix in chocolate chips into your favorite cookie dough.
 
-As a result of the copy operation, `Car` will operate somewhat separately from `Vehicle`. If you add a property onto `Car`, it will not affect `Vehicle`, and __vice versa__(反过来也是，也就是说修改 `Vheicle` 也不会影响 `Car`).
+As a result of the copy operation, `Car` will operate somewhat separately from `Vehicle`. If you add a property onto `Car`, it will not affect `Vehicle`, and __vice versa__(反过来也是).
 
 **Note:** A few minor details have been skimmed over here. There are still some subtle ways the two objects can "affect" each other even after copying, such as if they both share a reference to a common object (such as an array).
 
@@ -370,7 +370,7 @@ If you explicitly mix-in two or more objects into your target object, you can **
 
 Take care only to use explicit mixins where it actually helps make more readable code, and avoid the pattern if you find it making code that's harder to trace, or if you find it creates unnecessary or unwieldy dependencies between objects.
 
-**If it starts to get *harder* to properly use mixins than before you used them**, you should probably stop using mixins. In fact, if you have to use a complex library/utility to work out all these details, it might be a sign that you're going about it the harder way, perhaps unnecessarily. In Chapter 6, we'll try to distill a simpler way that accomplishes the desired outcomes without all the __fuss__.
+**If it starts to get *harder* to properly use mixins than before you used them**, you should probably stop using mixins. In fact, if you have to use a complex library/utility to work out all these details, it might be a sign that you're going about it the harder way, perhaps unnecessarily. In Chapter 6, we'll try to distill a simpler way that accomplishes the desired outcomes without all the __fuss__(问题).
 
 #### Parasitic Inheritance
 

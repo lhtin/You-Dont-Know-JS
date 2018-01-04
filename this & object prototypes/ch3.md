@@ -317,6 +317,8 @@ Firstly, we should answer if it should be a *shallow* or *deep* copy. A *shallow
 
 Should we detect a circular reference and just break the circular traversal (leaving the deep element not fully duplicated)? Should we error out completely? Something in between?
 
+笔记：另一种可能，真正的复制源对象，假如源对象中有循环引用，复制的对象中也需要创建类似的循环引用。虽然循环引用无法stringify（字符串化），但是复制是没问题的。对于有属性值是函数的源对象，上面的复制不可行。那么含有函数的对象该如何复制呢？文中说可以通过`f.toString()`来得到该函数的源码，但是不同平台不一定通用。
+
 Moreover, it's not really clear what "duplicating" a function would mean? There are some hacks like pulling out the `toString()` serialization of a function's source code (which varies across implementations and is not even reliable in all engines depending on the type of function being inspected).
 
 So how do we resolve all these tricky questions? Various JS frameworks have each picked their own interpretations and made their own decisions. But which of these (if any) should JS adopt as *the* standard? For a long time, there was no clear answer.
